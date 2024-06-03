@@ -35,8 +35,12 @@ const SeeProfits:React.FC = () => {
 
         getProfitsTotal(fromdate,TOdate)
         .then((res)=>{
-            console.log(res.data.A0);
-            setPofival(res.data.A0)
+            if(res.data.A0===null){
+                setPofival(0);
+            }
+            else{
+            setPofival(res.data.A0);
+            }   
         })
         .catch((err)=>{
             console.log(err);
