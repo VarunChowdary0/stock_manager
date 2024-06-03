@@ -33,7 +33,7 @@ export const getRecordsByDate = (datestart:string,dateend:string) =>{
 }
 
 export const getRecordsByKey = (key:string) =>{
-    const statement = `SELECT * FROM Products WHERE product_desc REGEXP '${key}?';`; 
+    const statement = `SELECT * FROM Products WHERE product_desc REGEXP '${key.toLowerCase()}?';`; 
     return axios.post(url+'get_sales_records',{
         statement
     })
