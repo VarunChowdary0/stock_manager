@@ -9,7 +9,7 @@ const SeeProfits:React.FC = () => {
     const today = new Date();
     const date = `${today.getFullYear()}-${((Number(today.getMonth())+1) > 9)?(today.getMonth()+1):'0'+(today.getMonth()+1) }-${(Number(today.getDate())> 9)?today.getDate():'0'+today.getDate()}`
     console.log(date) 
-    const [profitVal,setPofival] = useState<number>();
+    const [profitVal,setPofival] = useState<number>(0);
     const [fromdate,setFrom] = useState(date);
     const [TOdate,setTO] = useState(date);
 
@@ -82,7 +82,7 @@ const SeeProfits:React.FC = () => {
                     <img className=' w-10 ' 
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXzPsK_d7215wFSH8v6X4jQVNXOKgUtBM_A&s" alt="" />
                 </p>
-                <span className=' ml-10 mr-2 text-green-800'>{profitVal} 43535</span>
+                <span className=' ml-10 mr-2 text-green-800'>{profitVal}</span>
                 <p>/-</p>
             </div>
         </div>
