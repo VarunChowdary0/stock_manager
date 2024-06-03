@@ -50,9 +50,9 @@ const SeeProfits:React.FC = () => {
     </div>
     <div className=' mt-[60px] flex flex-col gap-5'>
         <div className=' h-fit flex  items-center
-         w-full bg-white/10 p-3 gap-7'>
+         w-full bg-white/0 p-3 gap-7'>
             <div className=' text-white'>
-                <p>From Date</p>
+                <p className=' mb-2'>From Date</p>
                 <input className=' h-[40px] text-[#464545] w-[150px] px-4 rounded-xl' 
                 type="date" value={fromdate}
                 onChange={(e)=>{
@@ -60,7 +60,7 @@ const SeeProfits:React.FC = () => {
                 }} placeholder='From Date'/>
             </div>
             <div className=' text-white'>
-                <p>To Date</p>
+            <p className=' mb-2'>To Date</p>
                 <input className=' h-[40px] text-[#464545] w-[150px] px-4 rounded-xl' 
                 type="date" value={TOdate} 
                 onChange={(e)=>{
@@ -70,7 +70,21 @@ const SeeProfits:React.FC = () => {
 
 
         </div>
-        <div className=' text-white text-3xl ml-14 w-[150px]'> Rs.<span className=' ml-1 text-green-800'>{profitVal}</span>
+        <div className=' flex items-center justify-center'>
+            <div >
+                <img className=' w-16' src="https://cdn-icons-png.flaticon.com/512/5427/5427227.png"
+                 alt="" />
+            </div>
+            <div className='  bg-white flex items-center justify-center 
+                rounded-lg px-4 py-1 relative h-[45px]
+            text-[#4c4c4c] text-3xl ml-14 min-w-[150px] w-fit'> 
+                <p className=' absolute left-2'>
+                    <img className=' w-10 ' 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXzPsK_d7215wFSH8v6X4jQVNXOKgUtBM_A&s" alt="" />
+                </p>
+                <span className=' ml-10 mr-2 text-green-800'>{profitVal} 43535</span>
+                <p>/-</p>
+            </div>
         </div>
         <div className="relative overflow-x-auto">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

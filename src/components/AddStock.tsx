@@ -59,15 +59,22 @@ const AddStock:React.FC = () => {
         <div className=' fixed  top-3 left-3 text-blue-400 text-2xl'>
             <a href="/home">Home</a>
         </div>
-        <div className=' mt-[50px] max-sm:mt-[100px] p-4 rounded-xl h-fit flex
-         gap-3 flex-col w-[500px] bg-white'>
-            <div className=''>
+        <div className=' mt-[0px] max-sm:mt-[70px] p-4 rounded-xl h-fit flex
+         gap-3 flex-col w-[500px] bg-white scale-90 max-sm:scale-95'>
+            <div className=' flex items-center'>
+            <img className=' w-10 mr-3' src="https://i.pinimg.com/564x/77/a3/ab/77a3abc3b5af542e9e9498ab85dd2d64.jpg"
+                         alt="+" />
                 <p className=' text-2xl pl-5'>Add New Stock</p>
             </div> 
-            <div className=' bg-[#e2e1e1] p-3 rounded-md pl-3 flex 
+            <hr />
+            <div className=' bg-[#e2e1e1]/0 p-3 rounded-md pl-3 flex 
              gap-4 flex-col w-full h-full'>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Product ID</div>
+                    <div className=' flex font-semibold items-center gap-2'>
+                        <img className=' w-10' src="https://cdn0.iconfinder.com/data/icons/shopping-76/100/Artboard_13-512.png"
+                         alt="" />
+                        <p>Product ID</p>
+                    </div>
                     <input onChange={(e)=>{
                         setProduct_id(e.target.value)
                     }} className=' ml-2 h-[40px] px-2 w-[70%]
@@ -75,7 +82,13 @@ const AddStock:React.FC = () => {
                     type="text" value={product_id} placeholder='Enter Product ID'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Description</div>
+                    <div className=' font-semibold'>
+                    <div className=' flex font-semibold items-center gap-2'>
+                        <img className=' w-10' src="https://cdn-icons-png.flaticon.com/512/1356/1356585.png"
+                         alt="" />
+                        <p>Description</p>
+                    </div>
+                    </div>
                     <input className=' ml-2 h-[40px] px-2 w-[70%] 
                     rounded-xl border border-[#8b8b8b]' 
                     value={description}
@@ -85,7 +98,12 @@ const AddStock:React.FC = () => {
                     type="text" placeholder='Enter Description'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Arrival Quantity</div>
+                    <div className=' font-semibold'></div>
+                    <div className=' flex font-semibold items-center gap-2'>
+                        <img className=' w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIAzGr6Gg9tpreAjT1w892GYTKIRjoi4h_w&s"
+                         alt="" />
+                        <p>Arrival Quantity</p>
+                    </div>
                     <input className=' ml-2 h-[40px] px-2 w-[70%] 
                     rounded-xl border border-[#8b8b8b]' 
                     value={ArrivalQuantity}
@@ -95,7 +113,11 @@ const AddStock:React.FC = () => {
                     type="number" placeholder='Enter Arrival Quantity'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Date of Arrival</div>
+                    <div className=' flex items-center gap-2 font-semibold'>
+                        <img className=' w-10' src="https://i.pinimg.com/736x/f6/3c/ea/f63cea7ca3521d0a2b8adbe4f3e10aa5.jpg"
+                            alt="" />
+                            <p>Arrival Date</p>
+                    </div>
                     <input className=' ml-2 h-[40px] px-2 w-[70%]
                      rounded-xl border border-[#8b8b8b]' 
                     value={ArrivalDate}
@@ -105,7 +127,11 @@ const AddStock:React.FC = () => {
                     type="date" placeholder='Enter Date of Arrival'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Bought Price</div>
+                    <div className=' flex items-center gap-2 font-semibold'>
+                        <img className=' w-10' src="https://thumbs.dreamstime.com/b/price-tag-icon-retail-sale-promotion-creative-element-design-stock-market-icons-collection-pixel-perfect-price-tag-icon-170316963.jpg"
+                            alt="" />
+                            <p>Bought Price</p>
+                    </div>
                     <input className=' ml-2 h-[40px] px-2 w-[70%] rounded-xl 
                     border border-[#8b8b8b]' 
                     value={boughtPrice}
@@ -115,8 +141,11 @@ const AddStock:React.FC = () => {
                     type="number" placeholder='Enter Bought Price'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Selling Price</div>
-                    <input className=' ml-2 h-[40px] px-2 w-[70%] 
+                    <div className=' flex items-center gap-2 font-semibold'>
+                        <img className=' w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN9lBBBsrq4Bxfvn6_g37WoJClcqTZosMfRQ&s"
+                            alt="" />
+                            <p>Selling Price</p>
+                    </div>                    <input className=' ml-2 h-[40px] px-2 w-[70%] 
                     rounded-xl border border-[#8b8b8b]' 
                     value={sellPrice}
                     onChange={(e)=>{

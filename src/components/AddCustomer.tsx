@@ -55,21 +55,29 @@ const AddCustomer:React.FC = () => {
         </div>
         <div className=' p-4 rounded-xl h-fit flex
          gap-3 flex-col w-[500px] bg-white'>
-            <div className=''>
+            <div className=' flex items-center'>
+            <img className=' w-12' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFFuaQWiuGJEie7ZxemO4bjBvNAnNzKd3R5A&s"
+                 alt="" />
                 <p className=' text-2xl pl-5'>Add New Customer</p>
             </div>
-            <div className=' bg-[#e2e1e1] p-3 rounded-md pl-3 flex 
+            <hr />
+            <div className=' bg-[#e2e1e1]/0 p-3 rounded-md pl-3 flex 
              gap-4 flex-col w-full h-full'>
                 
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Name of the Customer</div>
+                    <div className=' font-semibold'>
+                        <img className=' w-10' src="https://cdn-icons-png.flaticon.com/512/6682/6682701.png" alt="" />
+                            <p> Name of the Customer</p>
+                        </div>
                     <input onChange={(e)=>{
                         setname(e.target.value)
                     }} className=' ml-2 h-[40px] px-2 w-[70%] rounded-xl border border-[#8b8b8b]' 
                     type="text" value={name} placeholder='Enter Name of the Customer'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Phone Number</div>
+                    <div className=' font-semibold'>
+                    <img className=' w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuPh70alpTRkIVEVjE5dlDdWqmL_CdnXRcEA&s" alt="" />
+                        Phone Number</div>
                     <input
                 onChange={(e) => setPhone(Number(e.target.value))}
                 className={`ml-2 h-[40px] px-2 w-[70%] 

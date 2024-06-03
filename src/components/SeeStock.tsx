@@ -91,7 +91,9 @@ const SeeStock:React.FC = () => {
                         setInstock(!instock);
                     }}
                     className={` ${instock ? ' bg-green-500/50':' bg-red-700/50'}
-                 w-fit rounded-lg px-4 py-1 hover:cursor-pointer `}>Instock</div>
+                 w-fit rounded-lg px-4 py-1 hover:cursor-pointer `}>
+                    {instock?"Instock":"Out of Stock"}
+                 </div>
             </div>
            
             <div onClick={()=>{

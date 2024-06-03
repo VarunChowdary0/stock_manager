@@ -65,14 +65,19 @@ const SellingPage:React.FC = () => {
         </div>
         <div className=' p-4 rounded-xl h-fit flex
          gap-3 flex-col w-[500px] bg-white'>
-            <div className=''>
+            <div className=' flex items-center'>
+                <img className=' w-12' src="https://cdn-icons-png.freepik.com/256/4558/4558759.png?semt=ais_hybrid" alt="" />
                 <p className=' text-2xl pl-5'>Sale Records</p>
             </div>
-            <div className=' bg-[#e2e1e1] p-3 rounded-md pl-3 flex 
+            <hr />
+            <div className=' bg-[#e2e1e1]/0 p-3 rounded-md pl-3 flex 
              gap-4 flex-col w-full h-full'>
                
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Customer Phone number</div>
+                    <div className=' flex items-center gap-2 font-semibold'>
+                    <img className=' w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuPh70alpTRkIVEVjE5dlDdWqmL_CdnXRcEA&s" alt="" />
+                        <div>Customer Phone Number</div>
+                    </div>
                     <input 
                     onChange={(e)=>{
                         setPhone(Number(e.target.value));
@@ -82,7 +87,11 @@ const SellingPage:React.FC = () => {
                     type="phone" placeholder='Enter Customer Phone number'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Product ID</div>
+                    <div className=' flex font-semibold items-center gap-2'>
+                        <img className=' w-10' src="https://cdn0.iconfinder.com/data/icons/shopping-76/100/Artboard_13-512.png"
+                         alt="" />
+                        <p>Product ID</p>
+                    </div>
                     <input value={product_id} 
                     onChange={(e)=>{
                         setProduct_id(e.target.value);
@@ -91,7 +100,11 @@ const SellingPage:React.FC = () => {
                     type="text" placeholder='Enter Product ID'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Quantity</div>
+                     <div className=' flex font-semibold items-center gap-2'>
+                        <img className=' w-10' src="https://cdn-icons-png.freepik.com/512/3920/3920962.png"
+                         alt="" />
+                        <p>Quantity</p>
+                    </div>
                     <input value={Quantity} 
                     onChange={(e)=>{
                         setQuantity(Number(e.target.value))
@@ -101,7 +114,13 @@ const SellingPage:React.FC = () => {
                     type="number" placeholder='Enter Quantity'/>
                 </div>
                 <div className={` _block_ flex gap-2 flex-col ${price_sold>0?'':' border-red-500'}`}>
-                    <div className=' font-semibold'>Price Sold</div>
+                    <div className=' font-semibold'>
+                    <div className=' flex font-semibold items-center gap-2'>
+                        <img className=' w-10 rounded-full' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6ofTuLq5TeH3VKgvk0Jgq4Eycb6MpNQ4nOw&s"
+                         alt="" />
+                        <p>Price Sold</p>
+                    </div>
+                    </div>
                     <input value={price_sold} min={0}
                     onChange={(e)=>{
                         setPriceSold(Number(e.target.value));
@@ -110,7 +129,11 @@ const SellingPage:React.FC = () => {
                     type="number" placeholder='Enter Price Sold'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
-                    <div className=' font-semibold'>Date of Sale</div>
+                    <div className=' flex items-center gap-2 font-semibold'>
+                        <img className=' w-10' src="https://i.pinimg.com/736x/f6/3c/ea/f63cea7ca3521d0a2b8adbe4f3e10aa5.jpg"
+                            alt="" />
+                            <p>Date of Sale</p>
+                    </div>
                     <input value={date}
                     onChange={(e)=>{
                         setDate(e.target.value);
