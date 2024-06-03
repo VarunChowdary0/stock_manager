@@ -13,6 +13,7 @@ import AddCustomer from './components/AddCustomer';
 import SellingPage from './components/SellingPage';
 import SeeStock from './components/SeeStock';
 import SeeProfits from './components/SeeProfits';
+import Validate from './components/subcomps/Validate';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -48,6 +49,7 @@ const router = createBrowserRouter([
 ])
 root.render(
   <div className=' h-full w-full min-h-screen min-w-screen bg-[#1f2020]'>
+    <Validate/>
     <RouterProvider router={router} />
   </div>
 );

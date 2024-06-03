@@ -27,7 +27,7 @@ const HomePage:React.FC = () => {
                         <p className=''>Add Customer</p>
                     </div>
                 </div>
-                <div className=' p-4 pt-10 bg-black/20 flex gap-2
+                {/* <div className=' p-4 pt-10 bg-black/20 flex gap-2
                 flex-wrap relative rounded-lg'>
                     <div className=' absolute bg-green-700 px-3
                      top-2 left-2  text-white rounded-xl font-thin'>
@@ -45,7 +45,7 @@ const HomePage:React.FC = () => {
                     bg-white h-11 rounded-lg w-[200px] hover:cursor-pointer'>
                         <p className=''>Edit Sale</p>
                     </div>
-                </div>
+                </div> */}
                 <div className=' p-4 pt-10 bg-black/20 flex gap-2
                 flex-wrap relative rounded-lg'>
                     <div className=' absolute bg-green-700 px-3
