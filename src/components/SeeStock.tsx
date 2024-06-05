@@ -111,7 +111,7 @@ const SeeStock:React.FC = () => {
                 <div className=' flex justify-end items-end'>
                     <input className=' ml-9 h-[40px] w-[330px] px-4 rounded-xl' 
                     type="text" onChange={(e)=>{
-                        setKey(e.target.value);
+                        setKey(e.target.value.toLowerCase());
                     }} value={key} placeholder='Search by name'/>
                 </div>
             </div>

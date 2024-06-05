@@ -78,7 +78,7 @@ export const getProfits = (datestart:string,dateend:string) =>{
     })
 }
 export const getProfitsTotal = (datestart:string,dateend:string) =>{
-    const statement = `SELECT SUM(profit) AS A0 FROM
+    const statement = `SELECT   SUM(profit * quantity) AS A0 FROM
     ( SELECT * FROM Sales S INNER JOIN Customers C ON S.phone_number = C.phone_number ) E0 WHERE E0.sold_date BETWEEN "${datestart}" AND "${dateend}}";` 
     return axios.post(url+'get_sales_records',{
         statement

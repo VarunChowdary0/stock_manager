@@ -74,13 +74,15 @@ const SeeProfits:React.FC = () => {
 
 
         </div>
-        <div className=' flex items-center justify-center'>
+        <div className=' flex items-center ml-[25vw] max-sm:ml-0 max-sm:justify-center '>
+            <p className=' text-white text-lg mr-5 '
+            >{fromdate===TOdate ? `Profit on ${fromdate} `:""}</p>
             <div >
                 <img className=' w-16' src="https://cdn-icons-png.flaticon.com/512/5427/5427227.png"
                  alt="" />
             </div>
             <div className='  bg-white flex items-center justify-center 
-                rounded-lg px-4 py-1 relative h-[45px]
+                rounded-lg px-4 py-1 relative h-[45px] 
             text-[#4c4c4c] text-3xl ml-14 min-w-[150px] w-fit'> 
                 <p className=' absolute left-2'>
                     <img className=' w-10 ' 

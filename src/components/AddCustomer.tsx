@@ -70,8 +70,10 @@ const AddCustomer:React.FC = () => {
                             <p> Name of the Customer</p>
                         </div>
                     <input onChange={(e)=>{
-                        setname(e.target.value)
-                    }} className=' ml-2 h-[40px] px-2 w-[70%] rounded-xl border border-[#8b8b8b]' 
+                        setname(e.target.value.toLowerCase())
+                    }} className={` ml-2 h-[40px] px-2 w-[70%] 
+                    rounded-xl border border-[#8b8b8b]
+                     ${ name.trim().length > 0 ? ' border-green-600':'border-red-700 border-[2px]'}` } 
                     type="text" value={name} placeholder='Enter Name of the Customer'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
@@ -80,9 +82,9 @@ const AddCustomer:React.FC = () => {
                         Phone Number</div>
                     <input
                 onChange={(e) => setPhone(Number(e.target.value))}
-                className={`ml-2 h-[40px] px-2 w-[70%] 
+                className= {` ml-2 h-[40px] px-2 w-[70%] 
                 rounded-xl border border-[#8b8b8b]
-                 ${(String(phone).length>9)?'opacity-100':'opacity-60'} `}
+                 ${ String(phone).length === 10 ? ' border-green-600':'border-red-700 border-[2px]'}` }
                 type="phone"
                 placeholder='Enter Phone Number'
                 value={phone}

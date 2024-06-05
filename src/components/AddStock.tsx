@@ -11,45 +11,55 @@ const AddStock:React.FC = () => {
     const [description,setDescription] = useState<string>("");
     const [ArrivalQuantity,setArrivalQuantity] = useState<number>(1);
     const [ArrivalDate,setArrivalDate] = useState<any>(date);
-    const [boughtPrice,setBougthPrice] = useState<number>();
-    const [sellPrice,setSellprice] = useState<number>();
+    const [boughtPrice,setBougthPrice] = useState<number>(NaN);
+    const [sellPrice,setSellprice] = useState<number>(NaN);
    
+    const [Safe_on,setSafe] = useState<boolean>(false);
     const handleSave = async () =>{
-        setflasher("Loading... 🔃")
-        const Data = {
-            product_id,
-            description,
-            ArrivalQuantity,ArrivalDate,
-            boughtPrice,
-            sellPrice
-        }  
-        console.log(Data);
-    await NewStock(product_id,description,ArrivalQuantity,ArrivalDate,boughtPrice,sellPrice)
-        .then((res)=>{
-            if(res.status){
-                setflasher(res.data);
-                setTimeout(()=>{
-                    setflasher("");
-                },5000)
-            }
-            else{
+        if(!Safe_on && ( product_id.trim() !=="" && description.trim() !=="" && boughtPrice>0 && sellPrice>boughtPrice )){
+            setflasher("Loading... 🔃")
+            const Data = {
+                product_id,
+                description,
+                ArrivalQuantity,ArrivalDate,
+                boughtPrice,
+                sellPrice
+            }  
+            console.log(Data);
+        await NewStock(product_id,description,ArrivalQuantity,ArrivalDate,boughtPrice,sellPrice)
+            .then((res)=>{
+                if(res.status){
+                    setflasher(res.data);
+                    setSafe(true)
+                    setTimeout(()=>{
+                        setflasher("");
+                        setProduct_id("");
+                        setDescription("");
+                        setArrivalQuantity(1);
+                        setBougthPrice(NaN);
+                        setSellprice(NaN);
+                        setSafe(false);
+                    },5000)
+                }
+                else{
+                    setError(true);
+                    setflasher("⚠️ Something went wrong");
+                    setTimeout(()=>{
+                        setflasher("");
+                        setError(false);
+                    },5000)
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
                 setError(true);
                 setflasher("⚠️ Something went wrong");
                 setTimeout(()=>{
                     setflasher("");
                     setError(false);
-                },5000)
-            }
-        })
-        .catch((err)=>{
-            console.log(err);
-            setError(true);
-            setflasher("⚠️ Something went wrong");
-            setTimeout(()=>{
-                setflasher("");
-                setError(false);
-            },2000)
-        })
+                },2000)
+            })
+        }
     }   
 
     const [error,setError] = useState<boolean>(false);
@@ -77,8 +87,9 @@ const AddStock:React.FC = () => {
                     </div>
                     <input onChange={(e)=>{
                         setProduct_id(e.target.value)
-                    }} className=' ml-2 h-[40px] px-2 w-[70%]
-                     rounded-xl border border-[#8b8b8b]' 
+                    }} className= {` ml-2 h-[40px] px-2 w-[70%] 
+                    rounded-xl border border-[#8b8b8b]
+                     ${ product_id.trim().length > 0 ? ' border-green-600':'border-red-700 border-[2px]'}` } 
                     type="text" value={product_id} placeholder='Enter Product ID'/>
                 </div>
                 <div className=' _block_ flex gap-2 flex-col'>
@@ -93,7 +104,7 @@ const AddStock:React.FC = () => {
                     rounded-xl border border-[#8b8b8b]' 
                     value={description}
                     onChange={(e)=>{
-                        setDescription(e.target.value);
+                        setDescription(e.target.value.toLowerCase());
                     }}
                     type="text" placeholder='Enter Description'/>
                 </div>
@@ -104,8 +115,9 @@ const AddStock:React.FC = () => {
                          alt="" />
                         <p>Arrival Quantity</p>
                     </div>
-                    <input className=' ml-2 h-[40px] px-2 w-[70%] 
-                    rounded-xl border border-[#8b8b8b]' 
+                    <input className= {` ml-2 h-[40px] px-2 w-[70%] 
+                    rounded-xl border border-[#8b8b8b]
+                     ${ ArrivalQuantity > 0 ? ' border-green-600':'border-red-700 border-[2px]'}` }
                     value={ArrivalQuantity}
                     onChange={(e)=>{
                         setArrivalQuantity(Number(e.target.value));
@@ -118,8 +130,8 @@ const AddStock:React.FC = () => {
                             alt="" />
                             <p>Arrival Date</p>
                     </div>
-                    <input className=' ml-2 h-[40px] px-2 w-[70%]
-                     rounded-xl border border-[#8b8b8b]' 
+                    <input className={` ml-2 h-[40px] px-2 w-[70%]
+                     rounded-xl border border-[#8b8b8b] `}
                     value={ArrivalDate}
                     onChange={(e)=>{
                         setArrivalDate(e.target.value);
@@ -132,8 +144,9 @@ const AddStock:React.FC = () => {
                             alt="" />
                             <p>Bought Price</p>
                     </div>
-                    <input className=' ml-2 h-[40px] px-2 w-[70%] rounded-xl 
-                    border border-[#8b8b8b]' 
+                    <input className= {` ml-2 h-[40px] px-2 w-[70%] 
+                    rounded-xl border border-[#8b8b8b]
+                     ${ boughtPrice > 0 ? ' border-green-600':'border-red-700 border-[2px]'}` } 
                     value={boughtPrice}
                     onChange={(e)=>{
                         setBougthPrice(Number(e.target.value))
@@ -145,9 +158,12 @@ const AddStock:React.FC = () => {
                         <img className=' w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN9lBBBsrq4Bxfvn6_g37WoJClcqTZosMfRQ&s"
                             alt="" />
                             <p>Selling Price</p>
-                    </div>                    <input className=' ml-2 h-[40px] px-2 w-[70%] 
-                    rounded-xl border border-[#8b8b8b]' 
+                    </div>                    
+                    <input className={` ml-2 h-[40px] px-2 w-[70%] 
+                    rounded-xl border border-[#8b8b8b] 
+                    ${(sellPrice>boughtPrice)?' border-green-700':' border-red-700 border-[2px]'}`} 
                     value={sellPrice}
+                    min={1}
                     onChange={(e)=>{
                         setSellprice(Number(e.target.value));
                     }}
